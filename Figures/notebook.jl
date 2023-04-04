@@ -10,6 +10,9 @@ using CairoMakie
 # ╔═╡ a54ccbff-6274-42eb-9beb-33aef28b4013
 using LsqFit
 
+# ╔═╡ 6c9622fd-3fed-4d2e-8336-34211bd726b7
+set_theme!(font="Arial")
+
 # ╔═╡ ca21390a-f29e-4004-842f-618ed6b1b25b
 xrange, yrange = 1:10, 1:10
 
@@ -50,6 +53,9 @@ end;
 # ╔═╡ 12f11f5a-925d-4079-b440-7dfddf4d858d
 f
 
+# ╔═╡ e4d65bbf-9366-4afc-acac-970ec0e283d0
+save("open_single_pos.pdf", f, pt_per_unit=0.3)
+
 # ╔═╡ abe680b4-a1f2-48c1-9172-9f8368a37ba5
 md"""
 ## Open boundary- line sampling
@@ -83,6 +89,9 @@ end;
 # ╔═╡ 0af5544b-6f24-424f-9996-9cdf36046da5
 f2
 
+# ╔═╡ f3e196ef-8f65-417f-9930-631382fae43a
+save("open_line_pos.pdf", f2, pt_per_unit=0.3)
+
 # ╔═╡ f8b7537d-1cf6-46db-a1dc-91eef88ab1c5
 md"""
 ## Periodic boundary- point sampling
@@ -115,6 +124,9 @@ end;
 # ╔═╡ 6327f8ac-4169-4aa9-abc4-149093f1d495
 f3
 
+# ╔═╡ ba22802a-6564-4d72-a7a2-a825de611318
+save("periodic_single_pos.pdf", f3, pt_per_unit=0.3)
+
 # ╔═╡ a920c5a0-ea60-4d14-8a37-d834b4df982c
 md"""
 ## Periodic boundary- line sampling
@@ -131,7 +143,7 @@ end;
 # ╔═╡ de3a438b-14ae-4ae3-8248-303204c0b2cb
 begin
 	f4 = Figure(backgroundcolor=:white)
-	ax4 = Axis(f4[1,1], title="Open boundary dependency set- constant time positions", 
+	ax4 = Axis(f4[1,1], title="Periodic boundary dependency set- constant time positions", 
 		xlabel="x", ylabel="t", xgridvisible=false, ygridvisible=false, titlefont=:regular)
 	
 	scatter!(ax4, known_x4, known_y4, marker=:circle, markersize=20, color=:black, strokewidth=2, strokecolor=:black, label="Non-dependent positions")
@@ -148,6 +160,9 @@ end;
 
 # ╔═╡ f4b4a0c1-6794-4f2e-9d53-fa8953d424ed
 f4
+
+# ╔═╡ 4bec5923-cbba-421c-b744-27e0e757cd43
+save("periodic_line_pos.pdf", f4, pt_per_unit=0.3)
 
 # ╔═╡ a0d1fa00-8cab-4bed-a4db-84d6810ef012
 md"""
@@ -176,6 +191,9 @@ end;
 
 # ╔═╡ 4a9dbb0b-572a-4225-981e-9aae752944c1
 f5
+
+# ╔═╡ ab2619c8-f1d3-481e-be1e-c2a746eb201b
+save("pole_mass.pdf", f5, pt_per_unit=0.3)
 
 # ╔═╡ 2e92f850-c952-4502-a6b1-7388e2e6c6e9
 md"""
@@ -767,6 +785,9 @@ end;
 # ╔═╡ 780081ae-bd04-4dcf-a9a4-1b2905a73dcd
 f6
 
+# ╔═╡ e340a0fe-b45e-4c9e-a49c-ffe81f757f0c
+save("autocor_fun.pdf", f6, pt_per_unit=0.4)
+
 # ╔═╡ 2e8e3e17-f428-4485-b300-4f1374bede60
 md"""
 ## Integrated autocorrelation times
@@ -813,6 +834,9 @@ end;
 # ╔═╡ 48c8c594-a4c8-4d06-bad9-57e63b6baefc
 f7
 
+# ╔═╡ 612e49ab-d1ef-4f41-b6ce-f8aca9bab71e
+save("int_autocor.pdf", f7, pt_per_unit=0.3)
+
 # ╔═╡ 439aa709-02f6-47c2-8a26-725c8ca44448
 md"""
 ## Observables vs L
@@ -849,7 +873,7 @@ end;
 f8
 
 # ╔═╡ 24085edc-3909-4b47-a32f-09f60cd5e4c3
-
+save("obs_L.pdf", f8, pt_per_unit=1)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -2177,6 +2201,7 @@ version = "3.5.0+0"
 
 # ╔═╡ Cell order:
 # ╠═2aff2046-c551-11ed-173d-5f4e92f22177
+# ╠═6c9622fd-3fed-4d2e-8336-34211bd726b7
 # ╠═ca21390a-f29e-4004-842f-618ed6b1b25b
 # ╠═7fa0edb7-43bb-4d49-9594-c5fcd335b7c4
 # ╠═b00fcdc6-450d-4555-b8fe-99b20a6d9297
@@ -2184,24 +2209,29 @@ version = "3.5.0+0"
 # ╠═c9f63d6f-19f7-451c-8252-9d318cca5d99
 # ╠═520549f0-6336-4e51-8469-ccdaeb29b9e0
 # ╠═12f11f5a-925d-4079-b440-7dfddf4d858d
+# ╠═e4d65bbf-9366-4afc-acac-970ec0e283d0
 # ╠═abe680b4-a1f2-48c1-9172-9f8368a37ba5
 # ╠═f1902fc3-84ce-4da1-9ab7-0803456e3145
 # ╠═559256d2-8b20-4ae6-88b5-fcc904e6a611
 # ╠═0af5544b-6f24-424f-9996-9cdf36046da5
+# ╠═f3e196ef-8f65-417f-9930-631382fae43a
 # ╠═f8b7537d-1cf6-46db-a1dc-91eef88ab1c5
 # ╠═b84de61f-fca5-4b56-9d01-44ca8e6b2b58
 # ╠═96d883a6-d6b0-4616-b6ac-667f233de450
 # ╠═6327f8ac-4169-4aa9-abc4-149093f1d495
+# ╠═ba22802a-6564-4d72-a7a2-a825de611318
 # ╠═a920c5a0-ea60-4d14-8a37-d834b4df982c
 # ╠═f16dc6f9-0746-4125-888e-3c7f49921bc5
 # ╠═de3a438b-14ae-4ae3-8248-303204c0b2cb
 # ╠═f4b4a0c1-6794-4f2e-9d53-fa8953d424ed
+# ╠═4bec5923-cbba-421c-b744-27e0e757cd43
 # ╠═a0d1fa00-8cab-4bed-a4db-84d6810ef012
 # ╠═8fcdafe0-4db8-46f1-b467-4b34f040bd7b
 # ╠═6f8baaf4-5628-4811-95ea-00147aed41a5
 # ╠═53f1e59c-32b7-4abd-8202-03b1edbc3590
 # ╠═af5ff39f-41d0-4759-86d1-f6c89a56d41d
 # ╠═4a9dbb0b-572a-4225-981e-9aae752944c1
+# ╠═ab2619c8-f1d3-481e-be1e-c2a746eb201b
 # ╠═2e92f850-c952-4502-a6b1-7388e2e6c6e9
 # ╠═f3f4134d-e79a-40aa-b7f4-bdafde518124
 # ╟─d07439ac-8f44-4d31-9052-7c46ce1c3244
@@ -2212,6 +2242,7 @@ version = "3.5.0+0"
 # ╠═86e09ab8-f75d-49d6-9858-f8e7d222e662
 # ╠═6da048bf-a194-457f-bc1d-f951c905cc4e
 # ╠═780081ae-bd04-4dcf-a9a4-1b2905a73dcd
+# ╠═e340a0fe-b45e-4c9e-a49c-ffe81f757f0c
 # ╠═2e8e3e17-f428-4485-b300-4f1374bede60
 # ╠═d392b216-499e-431a-8bdb-fed3053e1917
 # ╠═a54ccbff-6274-42eb-9beb-33aef28b4013
@@ -2219,6 +2250,7 @@ version = "3.5.0+0"
 # ╠═1d65c1cc-b1a9-4d2e-8d5c-7f876e9cb597
 # ╠═f08073ba-8b86-4b91-8b47-ea58b27e0788
 # ╠═48c8c594-a4c8-4d06-bad9-57e63b6baefc
+# ╠═612e49ab-d1ef-4f41-b6ce-f8aca9bab71e
 # ╠═439aa709-02f6-47c2-8a26-725c8ca44448
 # ╠═65b27fbe-3e78-406c-9a10-ee79fcb41121
 # ╠═e7f60ce3-b022-4aef-bbe5-ce8549ec9292
