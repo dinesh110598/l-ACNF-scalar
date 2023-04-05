@@ -43,6 +43,11 @@ class Lattice:
         S = self.S(phi)
         return phi_lp + S
     
+    def ESS(self, phi, phi_lp):
+        KL = self.KL_loss(phi, phi_lp)
+        arg = 2*torch.logsumexp(-KL, 0) - torch.logsumexp(-2*KL, 0)
+        return torch.exp(arg)/phi.shape[0]
+    
     def pos_t_param(self, batch, device='cpu'):
         L = self.L
         
